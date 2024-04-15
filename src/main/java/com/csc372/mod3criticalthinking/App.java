@@ -55,13 +55,18 @@ public class App extends Application {
         textArea.appendText(now.toString() + "\n");
     }
 
+     private static final String FILE_PATH = "C:/Users/18135/Documents/log.txt";
+
     private void writeToFile() {
         try {
             String content = textArea.getText();
-            FileWriter writer = new FileWriter(new File("log.txt"));
+            FileWriter writer = new FileWriter(new File(FILE_PATH));
             writer.write(content);
             writer.close();
+            System.out.println("File 'log.txt' has been successfully created.");
+
         } catch (IOException e) {
+            System.err.println("An error occurred while writing to the file:");
             e.printStackTrace();
         }
     }
